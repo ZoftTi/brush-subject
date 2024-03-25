@@ -118,7 +118,7 @@ const nextSubject = () => {
 
 const randAnswer = () => {
   const nums = randNumber();
-  const result = reactive<Array<string>>([]);
+  const result = reactive([]);
 
   console.log(nums);
 
