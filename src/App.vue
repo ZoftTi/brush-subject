@@ -56,7 +56,7 @@ let cityCode = reactive<cityType[]>([
   { city: "长沙", code: "CSX" },
   { city: "六盘水", code: "LPF" },
   { city: "无锡", code: "WUX" },
-  { city: "郑州", code: "CGQ" },
+  { city: "郑州", code: "CGO" },
   { city: "荔波", code: "LLB" },
   { city: "万州", code: "WXN" },
   { city: "长春", code: "CGQ" },
@@ -102,17 +102,16 @@ let cityCode = reactive<cityType[]>([
 
 const nextSubject = () => {
 
-  console.log(cityCode.length, activeIndex.value)
+  if(!formValue.value) {
+    return false
+  }
+  
   activeIndex.value = activeIndex.value + 1;
   
   if ((activeIndex.value + 1) >  cityCode.length) {
     console.log('balance')
     balance();
     return false;
-  }
-
-  if(!formValue.value) {
-    return false
   }
 
   disabled.value = false;
@@ -277,9 +276,10 @@ onMounted(() => {
           <span class="text-sm">正确数量</span>
         </div>
         <div class="text-xl ml-6">
-          {{ accuracy.percentage }} <span class="text-sm">正确率</span>
+          {{ accuracy.percentage }} %<span class="text-sm">正确率</span>
         </div>
       </div>
+      <el-button type="danger" @click="clearCache">清除缓存</el-button>
     </div>
   </div>
   <!-- <p class="text-blue-600 text-2xl text-center">
