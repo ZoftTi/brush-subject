@@ -2,9 +2,15 @@
 import { ref, reactive, onMounted } from "vue";
 import { ElMessageBox } from "element-plus";
 
+type cityType = {
+  city: string,
+  code: string,
+  value?: string
+}
+
 const accuracy = reactive({
   count: 0,
-  percentage: 0,
+  percentage: '',
 });
 
 let alertOptions = reactive({
@@ -15,13 +21,13 @@ let alertOptions = reactive({
 
 const activeIndex = ref<number>(0);
 
-let activeAnswer = reactive([]);
+let activeAnswer = reactive<string[]>([]);
 
 let disabled = ref(false);
 
 const formValue = ref<string>("");
 
-let cityCode = reactive([
+let cityCode = reactive<cityType[]>([
   { city: "兴义", code: "ACX" },
   { city: "贵阳", code: "KWE" },
   { city: "思茅", code: "SYM" },
@@ -118,7 +124,7 @@ const nextSubject = () => {
 
 const randAnswer = () => {
   const nums = randNumber();
-  const result = reactive([]);
+  const result = reactive<string[]>([]);
 
   console.log(nums);
 
@@ -149,7 +155,7 @@ const changeAnswer = () => {
   const code = cityCode[activeIndex.value].code;
 
   window.localStorage.setItem("cityCode", JSON.stringify(cityCode));
-  window.localStorage.setItem("activeIndex", activeIndex.value);
+  window.localStorage.setItem("activeIndex", JSON.stringify(activeIndex.value));
 
   cityCode[activeIndex.value].value = formValue.value;
   disabled.value = true;
@@ -170,7 +176,7 @@ const clearCache = () => {
     // if you want to disable its autofocus
     // autofocus: false,
     confirmButtonText: "OK",
-    callback: (action) => {
+    callback: () => {
       window.localStorage.removeItem("cityCode");
       window.localStorage.removeItem("activeIndex");
 
@@ -187,7 +193,7 @@ const balance = () => {
     }
   });
 
-  accuracy.percentage = ((accuracy.count / cityCode.length) * 100).toFixed(2);
+  accuracy.percentage = (((accuracy.count / cityCode.length) * 100).toFixed(2)).toString();
 };
 
 onMounted(() => {
@@ -196,7 +202,7 @@ onMounted(() => {
 
   if (city && index) {
     cityCode = reactive(JSON.parse(city));
-    activeIndex.value = parseInt(index);
+    activeIndex.value = parseInt(JSON.parse(index));
   }
 
   randAnswer();
