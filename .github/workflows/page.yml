@@ -24,10 +24,12 @@ jobs:
           key: ${{ runner.OS }}-npm-cache
           restore-keys: |
             ${{ runner.OS }}-npm-cache
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3.0.0
       - name: Install Dependencies
-        run: npm install
+        run: pnpm
       - name: Build
-        run: npm run build
+        run: pnpm build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
