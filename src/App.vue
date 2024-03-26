@@ -9,7 +9,7 @@ type cityType = {
   type?: number;
 };
 
-const cityType = {
+const cityType: any = {
   1: "城市代码",
   2: "航空公司"
 }
