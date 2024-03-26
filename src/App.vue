@@ -855,9 +855,9 @@ onMounted(() => {
 
 <style scoped>
 
-.container {
+/* .container {
   background: url("@/assets/images/background.jpg") no-repeat center/cover;
-}
+} */
 
 ::v-deep .el-radio-group {
   flex-direction: column;
