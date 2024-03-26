@@ -667,7 +667,7 @@ const changeSubject = () => {
     confirmButtonText: "OK",
     callback: () => {
       cityCode.splice(0, cityCode.length);
-      switch (answerType.value as string) {
+      switch (answerType.value as unknown as string) {
         case "1":
           cityCode.push(...city);
           break;
