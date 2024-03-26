@@ -775,7 +775,7 @@ onMounted(() => {
       <div class="subject mb-4">
         <p>
           {{ activeIndex + 1 }}.
-          {{ cityCode[activeIndex].city }}的城市代码是下列中的那一个?
+          {{ cityCode[activeIndex].city }}的{{cityType[cityCode[activeIndex].type]}}是下列中的那一个?
         </p>
 
         <el-radio-group
