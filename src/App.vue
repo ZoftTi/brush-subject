@@ -11,8 +11,8 @@ type cityType = {
 
 const cityType: any = {
   1: "城市代码",
-  2: "航空公司"
-}
+  2: "航空公司",
+};
 
 const accuracy = reactive({
   count: 0,
@@ -33,7 +33,9 @@ let disabled = ref(false);
 
 const formValue = ref<string>("");
 
-let cityCode = reactive<cityType[]>([
+const answerType = ref<number>(1);
+
+let city = reactive<cityType[]>([
   {
     city: "万州",
     code: "WXN",
@@ -604,6 +606,9 @@ let cityCode = reactive<cityType[]>([
     code: "HZH",
     type: 1,
   },
+]);
+
+let airline = reactive<cityType[]>([
   { city: "九元", code: "AQ", type: 2 },
   { city: "捷星太平洋", code: "BL", type: 2 },
   { city: "奥凯", code: "BK", type: 2 },
@@ -652,6 +657,37 @@ let cityCode = reactive<cityType[]>([
   { city: "春秋", code: "9C", type: 2 },
   { city: "长安", code: "9H", type: 2 },
 ]);
+
+let cityCode = reactive<cityType[]>(city);
+
+const changeSubject = () => {
+  ElMessageBox.alert("确认切换吗", "确认", {
+    // if you want to disable its autofocus
+    // autofocus: false,
+    confirmButtonText: "OK",
+    callback: () => {
+      cityCode.splice(0, cityCode.length);
+      switch (answerType.value) {
+        case "1":
+          cityCode.push(...city);
+          break;
+        case "2":
+          cityCode.push(...airline);
+          break;
+        default:
+          break;
+      }
+      console.log(cityCode, answerType.value);
+
+      window.localStorage.removeItem("cityCode");
+      window.localStorage.removeItem("activeIndex");
+      window.localStorage.setItem(
+        "answerType",
+        JSON.stringify(answerType.value)
+      );
+    },
+  });
+};
 
 const nextSubject = () => {
   if (!formValue.value) {
@@ -707,6 +743,7 @@ const changeAnswer = () => {
 
   window.localStorage.setItem("cityCode", JSON.stringify(cityCode));
   window.localStorage.setItem("activeIndex", JSON.stringify(activeIndex.value));
+  window.localStorage.setItem("answerType", JSON.stringify(answerType.value));
 
   cityCode[activeIndex.value].value = formValue.value;
   disabled.value = true;
@@ -730,6 +767,7 @@ const clearCache = () => {
     callback: () => {
       window.localStorage.removeItem("cityCode");
       window.localStorage.removeItem("activeIndex");
+      window.localStorage.removeItem("answerType");
 
       window.location.reload();
     },
@@ -752,10 +790,12 @@ const balance = () => {
 onMounted(() => {
   const city = window.localStorage.getItem("cityCode");
   const index = window.localStorage.getItem("activeIndex");
+  const type = window.localStorage.getItem("answerType");
 
   if (city && index) {
     cityCode = reactive(JSON.parse(city));
     activeIndex.value = parseInt(JSON.parse(index));
+    answerType.value = parseInt(JSON.parse(type));
   }
 
   randAnswer();
@@ -764,6 +804,13 @@ onMounted(() => {
 
 <template>
   <div class="container p-6 pt-32 h-lvh">
+    <div class="p-2 bg-white rounded-md mb-2">
+      <el-radio-group v-model="answerType" @change="changeSubject">
+        <el-radio-button label="城市代码" value="1" />
+        <el-radio-button label="航空公司" value="2" />
+      </el-radio-group>
+    </div>
+
     <div
       class="shadow-2xl w-full p-6 rounded-md bg-white"
       v-if="!(activeIndex + 1 > cityCode.length)"
@@ -774,8 +821,9 @@ onMounted(() => {
 
       <div class="subject mb-4">
         <p>
-          {{ activeIndex + 1 }}.
-          {{ cityCode[activeIndex].city }}的{{cityType[cityCode[activeIndex].type]}}是下列中的那一个?
+          {{ activeIndex + 1 }}. {{ cityCode[activeIndex].city }}的{{
+            cityType[cityCode[activeIndex].type]
+          }}是下列中的那一个?
         </p>
 
         <el-radio-group
@@ -826,7 +874,9 @@ onMounted(() => {
           <el-tooltip
             class="box-item"
             effect="dark"
-            :content="`题目:${v.city}, 答案: ${v.code}, 类型: ${cityType[v.type]}`"
+            :content="`题目:${v.city}, 答案: ${v.code}, 类型: ${
+              cityType[v.type]
+            }`"
             placement="top-start"
           >
             {{ i }}
@@ -854,17 +904,17 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.container {
+  /* background: url("@/assets/images/background.jpg") no-repeat center/cover; */
+  background: #f4f3f2;
+}
 
-/* .container {
-  background: url("@/assets/images/background.jpg") no-repeat center/cover;
-} */
-
-::v-deep .el-radio-group {
+.subject ::v-deep .el-radio-group {
   flex-direction: column;
   align-items: flex-start;
 }
 
-::v-deep .el-radio-group .el-radio.el-radio--large {
+.subject ::v-deep .el-radio-group .el-radio.el-radio--large {
   height: 30px;
 }
 
