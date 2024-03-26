@@ -669,10 +669,18 @@ const changeSubject = () => {
       cityCode.splice(0, cityCode.length);
       switch (answerType.value as unknown as string) {
         case "1":
-          cityCode.push(...city);
+          cityCode.push(
+            ...city.sort(function () {
+              return 0.5 - Math.random();
+            })
+          );
           break;
         case "2":
-          cityCode.push(...airline);
+          cityCode.push(
+            ...airline.sort(function () {
+              return 0.5 - Math.random();
+            })
+          );
           break;
         default:
           break;
