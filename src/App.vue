@@ -27,7 +27,7 @@ let alertOptions = reactive({
 
 const activeIndex = ref<number>(0);
 
-let activeAnswer = reactive<string[]>([]);
+let activeAnswer = ref<string[]>([]);
 
 let disabled = ref(false);
 
@@ -35,7 +35,7 @@ const formValue = ref<string>("");
 
 const answerType = ref<number>(1);
 
-let city = reactive<cityType[]>([
+let city: cityType[] = [
   {
     city: "万州",
     code: "WXN",
@@ -606,9 +606,9 @@ let city = reactive<cityType[]>([
     code: "HZH",
     type: 1,
   },
-]);
+];
 
-let airline = reactive<cityType[]>([
+let airline: cityType[] = [
   { city: "九元", code: "AQ", type: 2 },
   { city: "捷星太平洋", code: "BL", type: 2 },
   { city: "奥凯", code: "BK", type: 2 },
@@ -656,9 +656,9 @@ let airline = reactive<cityType[]>([
   { city: "祥鹏", code: "8L", type: 2 },
   { city: "春秋", code: "9C", type: 2 },
   { city: "长安", code: "9H", type: 2 },
-]);
+];
 
-let cityCode = reactive<cityType[]>(city);
+let cityCode = ref<cityType[]>(city);
 
 const changeSubject = () => {
   ElMessageBox.alert("确认切换吗", "确认", {
@@ -666,26 +666,27 @@ const changeSubject = () => {
     // autofocus: false,
     confirmButtonText: "OK",
     callback: () => {
-      cityCode.splice(0, cityCode.length);
+      // cityCode.value.splice(0, cityCode.value.length);
+      // cityCode.value.length = 0
+      cityCode.value = []
       switch (answerType.value as unknown as string) {
         case "1":
-          cityCode.push(
-            ...city.sort(function () {
-              return 0.5 - Math.random();
-            })
-          );
+          cityCode.value.push(...city);
           break;
         case "2":
-          cityCode.push(
-            ...airline.sort(function () {
-              return 0.5 - Math.random();
-            })
-          );
+          cityCode.value.push(...airline);
           break;
         default:
           break;
       }
-      console.log(cityCode, answerType.value);
+
+      cityCode.value.sort(() => Math.random() - 0.5);
+      disabled.value = false;
+      alertOptions.show = false;
+      formValue.value = "";
+      randAnswer()
+
+      console.log(cityCode.value, answerType.value);
 
       window.localStorage.removeItem("cityCode");
       window.localStorage.removeItem("activeIndex");
@@ -704,7 +705,7 @@ const nextSubject = () => {
 
   activeIndex.value = activeIndex.value + 1;
 
-  if (activeIndex.value + 1 > cityCode.length) {
+  if (activeIndex.value + 1 > cityCode.value.length) {
     console.log("balance");
     balance();
     return false;
@@ -719,22 +720,22 @@ const nextSubject = () => {
 
 const randAnswer = () => {
   const nums = randNumber();
-  const result = reactive<string[]>([]);
+  const result:string[] = [];
 
   console.log(nums);
 
   nums.forEach((element) => {
-    result.push(cityCode[element].code);
+    result.push(cityCode.value[element].code);
   });
 
-  activeAnswer = result;
+  activeAnswer.value = result;
 };
 
 const randNumber = (): Array<number> => {
   const numbs = [activeIndex.value];
 
   while (numbs.length < 4) {
-    let rand = Math.floor(Math.random() * cityCode.length);
+    let rand = Math.floor(Math.random() * cityCode.value.length);
     if (!numbs.includes(rand)) {
       // 确保随机数不重复
       numbs.push(rand);
@@ -747,13 +748,13 @@ const randNumber = (): Array<number> => {
 };
 
 const changeAnswer = () => {
-  const code = cityCode[activeIndex.value].code;
+  const code = cityCode.value[activeIndex.value].code;
 
-  window.localStorage.setItem("cityCode", JSON.stringify(cityCode));
+  window.localStorage.setItem("cityCode", JSON.stringify(cityCode.value));
   window.localStorage.setItem("activeIndex", JSON.stringify(activeIndex.value));
   window.localStorage.setItem("answerType", JSON.stringify(answerType.value));
 
-  cityCode[activeIndex.value].value = formValue.value;
+  cityCode.value[activeIndex.value].value = formValue.value;
   disabled.value = true;
 
   if (code == formValue.value) {
@@ -784,13 +785,13 @@ const clearCache = () => {
 
 const balance = () => {
   // 结算
-  cityCode.forEach((e) => {
+  cityCode.value.forEach((e) => {
     if (e.code == e.value) {
       accuracy.count++;
     }
   });
 
-  accuracy.percentage = ((accuracy.count / cityCode.length) * 100)
+  accuracy.percentage = ((accuracy.count / cityCode.value.length) * 100)
     .toFixed(2)
     .toString();
 };
@@ -801,7 +802,7 @@ onMounted(() => {
   const type = window.localStorage.getItem("answerType");
 
   if (city && index) {
-    cityCode = reactive(JSON.parse(city));
+    cityCode.value = reactive(JSON.parse(city));
     activeIndex.value = parseInt(JSON.parse(index));
     answerType.value = parseInt(JSON.parse(type));
   }
