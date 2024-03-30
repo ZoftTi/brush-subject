@@ -606,6 +606,11 @@ let city: cityType[] = [
     code: "HZH",
     type: 1,
   },
+  {
+    city: "111",
+    code: "111",
+    type: 1,
+  },
 ];
 
 let airline: cityType[] = [
