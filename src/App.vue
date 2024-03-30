@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
 import { ElMessageBox } from "element-plus";
-import { subject } from '@/assets/data/subject_data.ts'
+import { subject } from 'src/assets/data/subject_data'
 
 type cityType = {
   city: string;
   code: string;
   value?: string;
   type?: number;
+  answer?: string[];
 };
 
 const cityType: any = ["城市代码","航空公司","测试题目"];
