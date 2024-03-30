@@ -37,8 +37,8 @@ const answerType = ref<number>(1);
 
 let city: cityType[] = [
   {
-    city: "万州",
-    code: "WXN",
+    city: "1111",
+    code: "111",
     type: 1,
   },
   {
@@ -604,11 +604,6 @@ let city: cityType[] = [
   {
     city: "黎平",
     code: "HZH",
-    type: 1,
-  },
-  {
-    city: "111",
-    code: "111",
     type: 1,
   },
 ];
