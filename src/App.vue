@@ -37,7 +37,7 @@ const formValue = ref<string>("");
 
 const answerType = ref<number>(0);
 
-let subjectCode = ref<cityType[]>(subject[0]);
+let subjectCode = ref<cityType[]>(subject[0].sort(() => Math.random() - 0.5));
 
 const changeSubject = () => {
   console.log(answerType.value, subjectCode[answerType.value])
@@ -46,12 +46,13 @@ const changeSubject = () => {
     // autofocus: false,
     confirmButtonText: "OK",
     callback: () => {
-      // subjectCode.value.splice(0, subjectCode.value.length);
-      // subjectCode.value.length = 0
+      
       subjectCode.value = []
       subjectCode.value.push(...subject[answerType.value]);
 
+      // 题目顺序随机
       subjectCode.value.sort(() => Math.random() - 0.5);
+
       disabled.value = false;
       alertOptions.show = false;
       formValue.value = "";
