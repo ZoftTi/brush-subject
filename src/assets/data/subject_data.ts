@@ -1,8 +1,8 @@
 export const subject: Array<any> = [
   [
     {
-      city: "1111",
-      code: "111",
+      city: "万州",
+      code: "WXN",
       type: 0,
     },
     {
