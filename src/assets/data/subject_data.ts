@@ -570,6 +570,12 @@ export const subject: Array<any> = [
       code: "HZH",
       type: 0,
     },
+    { city: "加尔各答", code: "CCU", type: 0 },
+    { city: "廊曼", code: "DMK", type: 0 },
+    { city: "张家界", code: "DYG", type: 0 },
+    { city: "芒市", code: "LUM", type: 0 },
+    { city: "阜阳", code: "FUG", type: 0 },
+    { city: "岳阳", code: "YYA", type: 0 },
   ],
   [
     { city: "九元", code: "AQ", type: 1 },
@@ -623,12 +629,12 @@ export const subject: Array<any> = [
     
   ],
   [
-    { city: "测试题目", code: "答案19H", type: 2, answer: ["答案1", "答案2", "答案3",] }, //这里只要填三个就可以自定义答案
     { city: "加尔各答", code: "CCU", type: 2 },
     { city: "廊曼", code: "DMK", type: 2 },
     { city: "张家界", code: "DYG", type: 2 },
     { city: "芒市", code: "LUM", type: 2 },
     { city: "阜阳", code: "FUG", type: 2 },
     { city: "岳阳", code: "YYA", type: 2 },
+    
   ]
 ]
