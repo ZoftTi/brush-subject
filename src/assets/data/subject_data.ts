@@ -619,13 +619,16 @@ export const subject: Array<any> = [
     { city: "祥鹏", code: "8L", type: 1 },
     { city: "春秋", code: "9C", type: 1 },
     { city: "长安", code: "9H", type: 1 },
+    { city: "幸福", code: "JR", type: 1 },
+    
   ],
   [
     { city: "测试题目", code: "答案19H", type: 2, answer: ["答案1", "答案2", "答案3",] }, //这里只要填三个就可以自定义答案
-    { city: "测试题目", code: "12", type: 2 },
-    { city: "测试题目", code: "44", type: 2 },
-    { city: "测试题目", code: "55", type: 2 },
-    { city: "测试题目", code: "77", type: 2 },
-    { city: "测试题目", code: "19", type: 2 },
+    { city: "加尔各答", code: "CCU", type: 2 },
+    { city: "廊曼", code: "DMK", type: 2 },
+    { city: "张家界", code: "DYG", type: 2 },
+    { city: "芒市", code: "LUM", type: 2 },
+    { city: "阜阳", code: "FUG", type: 2 },
+    { city: "岳阳", code: "YYA", type: 2 },
   ]
 ]
