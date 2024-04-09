@@ -576,6 +576,11 @@ export const subject: Array<any> = [
     { city: "芒市", code: "LUM", type: 0 },
     { city: "阜阳", code: "FUG", type: 0 },
     { city: "岳阳", code: "YYA", type: 0 },
+    { city: "澜沧", code: "JMJ", type: 0 },
+    { city: "鄂州", code: "EHU", type: 0 },
+    { city: "衢州", code: "JUZ", type: 0 },
+    { city: "舟山", code: "HSN", type: 0 },
+    { city: "西双版纳", code: "JHG", type: 0 },
   ],
   [
     { city: "九元", code: "AQ", type: 1 },
@@ -626,7 +631,7 @@ export const subject: Array<any> = [
     { city: "春秋", code: "9C", type: 1 },
     { city: "长安", code: "9H", type: 1 },
     { city: "幸福", code: "JR", type: 1 },
-    
+    { city: "乌鲁木齐", code: "UQ", type: 1 },
   ],
   [
     { city: "加尔各答", code: "CCU", type: 2 },
@@ -635,6 +640,10 @@ export const subject: Array<any> = [
     { city: "芒市", code: "LUM", type: 2 },
     { city: "阜阳", code: "FUG", type: 2 },
     { city: "岳阳", code: "YYA", type: 2 },
-    
+    { city: "澜沧", code: "JMJ", type: 2 },
+    { city: "鄂州", code: "EHU", type: 2 },
+    { city: "衢州", code: "JUZ", type: 2 },
+    { city: "舟山", code: "HSN", type: 2 },
+    { city: "西双版纳", code: "JHG", type: 2 },
   ]
 ]
