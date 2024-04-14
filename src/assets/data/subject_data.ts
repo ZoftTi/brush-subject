@@ -581,6 +581,12 @@ export const subject: Array<any> = [
     { city: "衢州", code: "JUZ", type: 0 },
     { city: "舟山", code: "HSN", type: 0 },
     { city: "西双版纳", code: "JHG", type: 0 },
+    { city: "荆州", code: "SHS", type: 0 },
+    { city: "汉中", code: "HZG", type: 0 },
+    { city: "达州", code: "DAX", type: 0 },
+    { city: "巫山", code: "WSK", type: 0 },
+    { city: "大阪关西", code: "KIX", type: 0 },
+    { city: "井冈山", code: "JGS", type: 0 },
   ],
   [
     { city: "九元", code: "AQ", type: 1 },
@@ -645,5 +651,11 @@ export const subject: Array<any> = [
     { city: "衢州", code: "JUZ", type: 2 },
     { city: "舟山", code: "HSN", type: 2 },
     { city: "西双版纳", code: "JHG", type: 2 },
+    { city: "荆州", code: "SHS", type: 2 },
+    { city: "汉中", code: "HZG", type: 2 },
+    { city: "达州", code: "DAX", type: 2 },
+    { city: "巫山", code: "WSK", type: 2 },
+    { city: "大阪关西", code: "KIX", type: 2 },
+    { city: "井冈山", code: "JGS", type: 2 },
   ]
 ]
