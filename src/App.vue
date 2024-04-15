@@ -143,6 +143,7 @@ const changeAnswer = () => {
     alertOptions.show = true;
     alertOptions.text = "答案正确";
     alertOptions.type = "success";
+    nextSubject()
   } else {
     alertOptions.show = true;
     alertOptions.text = `答案错误，正确答案为${code}`;
