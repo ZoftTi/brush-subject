@@ -1,666 +1,706 @@
 export const subject: Array<any> = [
-  [
-    {
-      city: "万州",
-      code: "WXN",
-      type: 0,
-    },
-    {
-      city: "三亚",
-      code: "SYX",
-      type: 0,
-    },
-    {
-      city: "上海",
-      code: "SHA",
-      type: 0,
-    },
-    {
-      city: "丽江",
-      code: "LJG",
-      type: 0,
-    },
-    {
-      city: "义乌",
-      code: "YIW",
-      type: 0,
-    },
-    {
-      city: "乌鲁木齐",
-      code: "URC",
-      type: 0,
-    },
-    {
-      city: "九寨沟",
-      code: "JZH",
-      type: 0,
-    },
-    {
-      city: "仁川",
-      code: "ICN",
-      type: 0,
-    },
-    {
-      city: "仁怀(茅台）",
-      code: "REH（WMT)",
-      type: 0,
-    },
-    {
-      city: "六盘水",
-      code: "LPF",
-      type: 0,
-    },
-    {
-      city: "兰州",
-      code: "LHW",
-      type: 0,
-    },
-    {
-      city: "兴义",
-      code: "ACX",
-      type: 0,
-    },
-    {
-      city: "凯里",
-      code: "KJH",
-      type: 0,
-    },
-    {
-      city: "包头",
-      code: "BAV",
-      type: 0,
-    },
-    {
-      city: "北京",
-      code: "PEK",
-      type: 0,
-    },
-    {
-      city: "北京大兴",
-      code: "PKX",
-      type: 0,
-    },
-    {
-      city: "北海",
-      code: "BHY",
-      type: 0,
-    },
-    {
-      city: "南京",
-      code: "NKG",
-      type: 0,
-    },
-    {
-      city: "南充",
-      code: "NAO",
-      type: 0,
-    },
-    {
-      city: "南宁",
-      code: "NNG",
-      type: 0,
-    },
-    {
-      city: "南昌",
-      code: "KHN",
-      type: 0,
-    },
-    {
-      city: "南苑",
-      code: "NAY",
-      type: 0,
-    },
-    {
-      city: "南通",
-      code: "NTG",
-      type: 0,
-    },
-    {
-      city: "博鳌",
-      code: "BAR",
-      type: 0,
-    },
-    {
-      city: "厦门",
-      code: "XMN",
-      type: 0,
-    },
-    {
-      city: "台北",
-      code: "TPE",
-      type: 0,
-    },
-    {
-      city: "台州",
-      code: "HYN",
-      type: 0,
-    },
-    {
-      city: "合肥",
-      code: "HFE",
-      type: 0,
-    },
-    {
-      city: "吉隆坡",
-      code: "KUL",
-      type: 0,
-    },
-    {
-      city: "名古屋",
-      code: "NGO",
-      type: 0,
-    },
-    {
-      city: "吕梁",
-      code: "LLV",
-      type: 0,
-    },
-    {
-      city: "呼和",
-      code: "HET",
-      type: 0,
-    },
-    {
-      city: "哈尔滨",
-      code: "HRB",
-      type: 0,
-    },
-    {
-      city: "唐山",
-      code: "TVS",
-      type: 0,
-    },
-    {
-      city: "大连",
-      code: "DLC",
-      type: 0,
-    },
-    {
-      city: "天府",
-      code: "TFU",
-      type: 0,
-    },
-    {
-      city: "天津",
-      code: "TSN",
-      type: 0,
-    },
-    {
-      city: "太原",
-      code: "TYN",
-      type: 0,
-    },
-    {
-      city: "宁波",
-      code: "NGB",
-      type: 0,
-    },
-    {
-      city: "安庆",
-      code: "AOG",
-      type: 0,
-    },
-    {
-      city: "安顺",
-      code: "AVA",
-      type: 0,
-    },
-    {
-      city: "宜宾",
-      code: "YBP",
-      type: 0,
-    },
-    {
-      city: "宜昌",
-      code: "YIH",
-      type: 0,
-    },
-    {
-      city: "宜春",
-      code: "YIC",
-      type: 0,
-    },
-    {
-      city: "常州",
-      code: "CZX",
-      type: 0,
-    },
-    {
-      city: "广州",
-      code: "CAN",
-      type: 0,
-    },
-    {
-      city: "库尔勒",
-      code: "KRL",
-      type: 0,
-    },
-    {
-      city: "延安",
-      code: "ENY",
-      type: 0,
-    },
-    {
-      city: "徐州",
-      code: "XUZ",
-      type: 0,
-    },
-    {
-      city: "思茅",
-      code: "SYM",
-      type: 0,
-    },
-    {
-      city: "惠州",
-      code: "HUZ",
-      type: 0,
-    },
-    {
-      city: "成都",
-      code: "CTU",
-      type: 0,
-    },
-    {
-      city: "扬州",
-      code: "YTY",
-      type: 0,
-    },
-    {
-      city: "拉萨",
-      code: "LXA",
-      type: 0,
-    },
-    {
-      city: "新加坡",
-      code: "SIN",
-      type: 0,
-    },
-    {
-      city: "无锡",
-      code: "WUX",
-      type: 0,
-    },
-    {
-      city: "昆明",
-      code: "KMG",
-      type: 0,
-    },
-    {
-      city: "昭通",
-      code: "ZAT",
-      type: 0,
-    },
-    {
-      city: "晋江",
-      code: "JJN",
-      type: 0,
-    },
-    {
-      city: "普吉",
-      code: "HKT",
-      type: 0,
-    },
-    {
-      city: "暹粒",
-      code: "REP",
-      type: 0,
-    },
-    {
-      city: "曼谷",
-      code: "BKK",
-      type: 0,
-    },
-    {
-      city: "杭州",
-      code: "HGH",
-      type: 0,
-    },
-    {
-      city: "柳州",
-      code: "LZH",
-      type: 0,
-    },
-    {
-      city: "桂林",
-      code: "KWL",
-      type: 0,
-    },
-    {
-      city: "梧州",
-      code: "WUZ",
-      type: 0,
-    },
-    {
-      city: "榆林",
-      code: "UYN",
-      type: 0,
-    },
-    {
-      city: "武夷山",
-      code: "WUS",
-      type: 0,
-    },
-    {
-      city: "武汉",
-      code: "WUH",
-      type: 0,
-    },
-    {
-      city: "毕节",
-      code: "BFJ",
-      type: 0,
-    },
-    {
-      city: "汕头",
-      code: "SWA",
-      type: 0,
-    },
-    {
-      city: "沈阳",
-      code: "SHE",
-      type: 0,
-    },
-    {
-      city: "河内",
-      code: "HAN",
-      type: 0,
-    },
-    {
-      city: "泸州",
-      code: "LZO",
-      type: 0,
-    },
-    {
-      city: "洛阳",
-      code: "LYA",
-      type: 0,
-    },
-    {
-      city: "济南",
-      code: "TNA",
-      type: 0,
-    },
-    {
-      city: "浦东",
-      code: "PVG",
-      type: 0,
-    },
-    {
-      city: "海口",
-      code: "HAK",
-      type: 0,
-    },
-    {
-      city: "淮安",
-      code: "HIA",
-      type: 0,
-    },
-    {
-      city: "深圳",
-      code: "SZX",
-      type: 0,
-    },
-    {
-      city: "清州",
-      code: "CJJ",
-      type: 0,
-    },
-    {
-      city: "温州",
-      code: "WNZ",
-      type: 0,
-    },
-    {
-      city: "湛江",
-      code: "ZHA",
-      type: 0,
-    },
-    {
-      city: "澳门",
-      code: "MFM",
-      type: 0,
-    },
-    {
-      city: "珠海",
-      code: "ZUH",
-      type: 0,
-    },
-    {
-      city: "甲米",
-      code: "KBV",
-      type: 0,
-    },
-    {
-      city: "百色",
-      code: "AEB",
-      type: 0,
-    },
-    {
-      city: "盐城",
-      code: "YNZ",
-      type: 0,
-    },
-    {
-      city: "石家庄",
-      code: "SJW",
-      type: 0,
-    },
-    {
-      city: "福州",
-      code: "FOC",
-      type: 0,
-    },
-    {
-      city: "米兰",
-      code: "MIL",
-      type: 0,
-    },
-    {
-      city: "绵阳",
-      code: "MIG",
-      type: 0,
-    },
-    {
-      city: "芜湖",
-      code: "WHA",
-      type: 0,
-    },
-    {
-      city: "芽庄",
-      code: "CXR",
-      type: 0,
-    },
-    {
-      city: "荔波",
-      code: "LLB",
-      type: 0,
-    },
-    {
-      city: "衡阳",
-      code: "HNY",
-      type: 0,
-    },
-    {
-      city: "襄阳",
-      code: "XFN",
-      type: 0,
-    },
-    {
-      city: "西安",
-      code: "XIY",
-      type: 0,
-    },
-    {
-      city: "贵阳",
-      code: "KWE",
-      type: 0,
-    },
-    {
-      city: "赣州",
-      code: "KOW",
-      type: 0,
-    },
-    {
-      city: "运城",
-      code: "YCU",
-      type: 0,
-    },
-    {
-      city: "遵义",
-      code: "ZYI",
-      type: 0,
-    },
-    {
-      city: "郑州",
-      code: "CGO",
-      type: 0,
-    },
-    {
-      city: "鄂尔多斯",
-      code: "DSN",
-      type: 0,
-    },
-    {
-      city: "重庆",
-      code: "CKG",
-      type: 0,
-    },
-    {
-      city: "釜山",
-      code: "PUS",
-      type: 0,
-    },
-    {
-      city: "铜仁",
-      code: "TEN",
-      type: 0,
-    },
-    {
-      city: "银川",
-      code: "INC",
-      type: 0,
-    },
-    {
-      city: "长春",
-      code: "CGQ",
-      type: 0,
-    },
-    {
-      city: "长沙",
-      code: "CSX",
-      type: 0,
-    },
-    {
-      city: "青岛",
-      code: "TAO",
-      type: 0,
-    },
-    {
-      city: "首尔",
-      code: "SEL",
-      type: 0,
-    },
-    {
-      city: "香港",
-      code: "HKG",
-      type: 0,
-    },
-    {
-      city: "黎平",
-      code: "HZH",
-      type: 0,
-    },
-    { city: "加尔各答", code: "CCU", type: 0 },
-    { city: "廊曼", code: "DMK", type: 0 },
-    { city: "张家界", code: "DYG", type: 0 },
-    { city: "芒市", code: "LUM", type: 0 },
-    { city: "阜阳", code: "FUG", type: 0 },
-    { city: "岳阳", code: "YYA", type: 0 },
-    { city: "澜沧", code: "JMJ", type: 0 },
-    { city: "鄂州", code: "EHU", type: 0 },
-    { city: "衢州", code: "JUZ", type: 0 },
-    { city: "舟山", code: "HSN", type: 0 },
-    { city: "西双版纳", code: "JHG", type: 0 },
-    { city: "荆州", code: "SHS", type: 0 },
-    { city: "汉中", code: "HZG", type: 0 },
-    { city: "达州", code: "DZH", type: 0 },
-    { city: "巫山", code: "WSK", type: 0 },
-    { city: "大阪关西", code: "KIX", type: 0 },
-    { city: "井冈山", code: "JGS", type: 0 },
-    { city: "烟台", code: "YNT", type: 0 },
-    { city: "恩施", code: "ENH", type: 0 },
-  ],
-  [
-    { city: "九元", code: "AQ", type: 1 },
-    { city: "捷星太平洋", code: "BL", type: 1 },
-    { city: "奥凯", code: "BK", type: 1 },
-    { city: "国航", code: "CA", type: 1 },
-    { city: "南航", code: "CZ", type: 1 },
-    { city: "东海", code: "DZ", type: 1 },
-    { city: "瑞丽", code: "DR", type: 1 },
-    { city: "成都", code: "EU", type: 1 },
-    { city: "泰新时代", code: "E3", type: 1 },
-    { city: "上海", code: "FM", type: 1 },
-    { city: "福州", code: "FU", type: 1 },
-    { city: "天津", code: "GS", type: 1 },
-    { city: "华夏", code: "G5", type: 1 },
-    { city: "多彩", code: "GY", type: 1 },
-    { city: "北部湾", code: "GX", type: 1 },
-    { city: "桂林", code: "GT", type: 1 },
-    { city: "长龙", code: "GJ", type: 1 },
-    { city: "海航", code: "HU", type: 1 },
-    { city: "吉祥", code: "HO", type: 1 },
-    { city: "香港", code: "HX", type: 1 },
-    { city: "首都", code: "JD", type: 1 },
-    { city: "昆明", code: "KY", type: 1 },
-    { city: "联合", code: "KN", type: 1 },
-    { city: "东航", code: "MU", type: 1 },
-    { city: "厦航", code: "MF", type: 1 },
-    { city: "河北", code: "NS", type: 1 },
-    { city: "澳门", code: "NX", type: 1 },
-    { city: "顺丰", code: "O3", type: 1 },
-    { city: "马印航空", code: "OD", type: 1 },
-    { city: "泰东方", code: "OX", type: 1 },
-    { city: "西部", code: "PN", type: 1 },
-    { city: "城市快线", code: "QG", type: 1 },
-    { city: "青岛", code: "QW", type: 1 },
-    { city: "江西", code: "RY", type: 1 },
-    { city: "俄罗斯", code: "RL", type: 1 },
-    { city: "山东", code: "SC", type: 1 },
-    { city: "西藏", code: "TV", type: 1 },
-    { city: "越南航空", code: "VN", type: 1 },
-    { city: "越捷", code: "VJ", type: 1 },
-    { city: "扬子江", code: "Y8", type: 1 },
-    { city: "深航", code: "ZH", type: 1 },
-    { city: "天翼亚洲", code: "ZA", type: 1 },
-    { city: "川航", code: "3U", type: 1 },
-    { city: "捷星", code: "3K", type: 1 },
-    { city: "祥鹏", code: "8L", type: 1 },
-    { city: "春秋", code: "9C", type: 1 },
-    { city: "长安", code: "9H", type: 1 },
-    { city: "幸福", code: "JR", type: 1 },
-    { city: "乌鲁木齐", code: "UQ", type: 1 },
-    { city: "龙江", code: "LT", type: 1 },
-  ],
-  [
-    { city: "加尔各答", code: "CCU", type: 2 },
-    { city: "廊曼", code: "DMK", type: 2 },
-    { city: "张家界", code: "DYG", type: 2 },
-    { city: "芒市", code: "LUM", type: 2 },
-    { city: "阜阳", code: "FUG", type: 2 },
-    { city: "岳阳", code: "YYA", type: 2 },
-    { city: "澜沧", code: "JMJ", type: 2 },
-    { city: "鄂州", code: "EHU", type: 2 },
-    { city: "衢州", code: "JUZ", type: 2 },
-    { city: "舟山", code: "HSN", type: 2 },
-    { city: "西双版纳", code: "JHG", type: 2 },
-    { city: "荆州", code: "SHS", type: 2 },
-    { city: "汉中", code: "HZG", type: 2 },
-    { city: "达州", code: "DZH", type: 2 },
-    { city: "巫山", code: "WSK", type: 2 },
-    { city: "大阪关西", code: "KIX", type: 2 },
-    { city: "井冈山", code: "JGS", type: 2 },
-    { city: "烟台", code: "YNT", type: 2 },
-    { city: "恩施", code: "ENH", type: 2 },
-  ]
+  {
+    title: "城市代码",
+    type: "choice",
+    subject: [
+      {
+        city: "万州",
+        code: "WXN",
+      },
+      {
+        city: "三亚",
+        code: "SYX",
+      },
+      {
+        city: "上海",
+        code: "SHA",
+      },
+      {
+        city: "丽江",
+        code: "LJG",
+      },
+      {
+        city: "义乌",
+        code: "YIW",
+      },
+      {
+        city: "乌鲁木齐",
+        code: "URC",
+      },
+      {
+        city: "九寨沟",
+        code: "JZH",
+      },
+      {
+        city: "仁川",
+        code: "ICN",
+      },
+      {
+        city: "仁怀(茅台）",
+        code: "REH（WMT)",
+      },
+      {
+        city: "六盘水",
+        code: "LPF",
+      },
+      {
+        city: "兰州",
+        code: "LHW",
+      },
+      {
+        city: "兴义",
+        code: "ACX",
+      },
+      {
+        city: "凯里",
+        code: "KJH",
+      },
+      {
+        city: "包头",
+        code: "BAV",
+      },
+      {
+        city: "北京",
+        code: "PEK",
+      },
+      {
+        city: "北京大兴",
+        code: "PKX",
+      },
+      {
+        city: "北海",
+        code: "BHY",
+      },
+      {
+        city: "南京",
+        code: "NKG",
+      },
+      {
+        city: "南充",
+        code: "NAO",
+      },
+      {
+        city: "南宁",
+        code: "NNG",
+      },
+      {
+        city: "南昌",
+        code: "KHN",
+      },
+      {
+        city: "南苑",
+        code: "NAY",
+      },
+      {
+        city: "南通",
+        code: "NTG",
+      },
+      {
+        city: "博鳌",
+        code: "BAR",
+      },
+      {
+        city: "厦门",
+        code: "XMN",
+      },
+      {
+        city: "台北",
+        code: "TPE",
+      },
+      {
+        city: "台州",
+        code: "HYN",
+      },
+      {
+        city: "合肥",
+        code: "HFE",
+      },
+      {
+        city: "吉隆坡",
+        code: "KUL",
+      },
+      {
+        city: "名古屋",
+        code: "NGO",
+      },
+      {
+        city: "吕梁",
+        code: "LLV",
+      },
+      {
+        city: "呼和",
+        code: "HET",
+      },
+      {
+        city: "哈尔滨",
+        code: "HRB",
+      },
+      {
+        city: "唐山",
+        code: "TVS",
+      },
+      {
+        city: "大连",
+        code: "DLC",
+      },
+      {
+        city: "天府",
+        code: "TFU",
+      },
+      {
+        city: "天津",
+        code: "TSN",
+      },
+      {
+        city: "太原",
+        code: "TYN",
+      },
+      {
+        city: "宁波",
+        code: "NGB",
+      },
+      {
+        city: "安庆",
+        code: "AOG",
+      },
+      {
+        city: "安顺",
+        code: "AVA",
+      },
+      {
+        city: "宜宾",
+        code: "YBP",
+      },
+      {
+        city: "宜昌",
+        code: "YIH",
+      },
+      {
+        city: "宜春",
+        code: "YIC",
+      },
+      {
+        city: "常州",
+        code: "CZX",
+      },
+      {
+        city: "广州",
+        code: "CAN",
+      },
+      {
+        city: "库尔勒",
+        code: "KRL",
+      },
+      {
+        city: "延安",
+        code: "ENY",
+      },
+      {
+        city: "徐州",
+        code: "XUZ",
+      },
+      {
+        city: "思茅",
+        code: "SYM",
+      },
+      {
+        city: "惠州",
+        code: "HUZ",
+      },
+      {
+        city: "成都",
+        code: "CTU",
+      },
+      {
+        city: "扬州",
+        code: "YTY",
+      },
+      {
+        city: "拉萨",
+        code: "LXA",
+      },
+      {
+        city: "新加坡",
+        code: "SIN",
+      },
+      {
+        city: "无锡",
+        code: "WUX",
+      },
+      {
+        city: "昆明",
+        code: "KMG",
+      },
+      {
+        city: "昭通",
+        code: "ZAT",
+      },
+      {
+        city: "晋江",
+        code: "JJN",
+      },
+      {
+        city: "普吉",
+        code: "HKT",
+      },
+      {
+        city: "暹粒",
+        code: "REP",
+      },
+      {
+        city: "曼谷",
+        code: "BKK",
+      },
+      {
+        city: "杭州",
+        code: "HGH",
+      },
+      {
+        city: "柳州",
+        code: "LZH",
+      },
+      {
+        city: "桂林",
+        code: "KWL",
+      },
+      {
+        city: "梧州",
+        code: "WUZ",
+      },
+      {
+        city: "榆林",
+        code: "UYN",
+      },
+      {
+        city: "武夷山",
+        code: "WUS",
+      },
+      {
+        city: "武汉",
+        code: "WUH",
+      },
+      {
+        city: "毕节",
+        code: "BFJ",
+      },
+      {
+        city: "汕头",
+        code: "SWA",
+      },
+      {
+        city: "沈阳",
+        code: "SHE",
+      },
+      {
+        city: "河内",
+        code: "HAN",
+      },
+      {
+        city: "泸州",
+        code: "LZO",
+      },
+      {
+        city: "洛阳",
+        code: "LYA",
+      },
+      {
+        city: "济南",
+        code: "TNA",
+      },
+      {
+        city: "浦东",
+        code: "PVG",
+      },
+      {
+        city: "海口",
+        code: "HAK",
+      },
+      {
+        city: "淮安",
+        code: "HIA",
+      },
+      {
+        city: "深圳",
+        code: "SZX",
+      },
+      {
+        city: "清州",
+        code: "CJJ",
+      },
+      {
+        city: "温州",
+        code: "WNZ",
+      },
+      {
+        city: "湛江",
+        code: "ZHA",
+      },
+      {
+        city: "澳门",
+        code: "MFM",
+      },
+      {
+        city: "珠海",
+        code: "ZUH",
+      },
+      {
+        city: "甲米",
+        code: "KBV",
+      },
+      {
+        city: "百色",
+        code: "AEB",
+      },
+      {
+        city: "盐城",
+        code: "YNZ",
+      },
+      {
+        city: "石家庄",
+        code: "SJW",
+      },
+      {
+        city: "福州",
+        code: "FOC",
+      },
+      {
+        city: "米兰",
+        code: "MIL",
+      },
+      {
+        city: "绵阳",
+        code: "MIG",
+      },
+      {
+        city: "芜湖",
+        code: "WHA",
+      },
+      {
+        city: "芽庄",
+        code: "CXR",
+      },
+      {
+        city: "荔波",
+        code: "LLB",
+      },
+      {
+        city: "衡阳",
+        code: "HNY",
+      },
+      {
+        city: "襄阳",
+        code: "XFN",
+        type: 0,
+      },
+      {
+        city: "西安",
+        code: "XIY",
+      },
+      {
+        city: "贵阳",
+        code: "KWE",
+      },
+      {
+        city: "赣州",
+        code: "KOW",
+      },
+      {
+        city: "运城",
+        code: "YCU",
+      },
+      {
+        city: "遵义",
+        code: "ZYI",
+      },
+      {
+        city: "郑州",
+        code: "CGO",
+      },
+      {
+        city: "鄂尔多斯",
+        code: "DSN",
+      },
+      {
+        city: "重庆",
+        code: "CKG",
+      },
+      {
+        city: "釜山",
+        code: "PUS",
+      },
+      {
+        city: "铜仁",
+        code: "TEN",
+      },
+      {
+        city: "银川",
+        code: "INC",
+      },
+      {
+        city: "长春",
+        code: "CGQ",
+      },
+      {
+        city: "长沙",
+        code: "CSX",
+      },
+      {
+        city: "青岛",
+        code: "TAO",
+      },
+      {
+        city: "首尔",
+        code: "SEL",
+      },
+      {
+        city: "香港",
+        code: "HKG",
+      },
+      {
+        city: "黎平",
+        code: "HZH",
+      },
+      { city: "加尔各答", code: "CCU" },
+      { city: "廊曼", code: "DMK" },
+      { city: "张家界", code: "DYG" },
+      { city: "芒市", code: "LUM" },
+      { city: "阜阳", code: "FUG" },
+      { city: "岳阳", code: "YYA" },
+      { city: "澜沧", code: "JMJ" },
+      { city: "鄂州", code: "EHU" },
+      { city: "衢州", code: "JUZ" },
+      { city: "舟山", code: "HSN" },
+      { city: "西双版纳", code: "JHG" },
+      { city: "荆州", code: "SHS" },
+      { city: "汉中", code: "HZG" },
+      { city: "达州", code: "DZH" },
+      { city: "巫山", code: "WSK" },
+      { city: "大阪关西", code: "KIX" },
+      { city: "井冈山", code: "JGS" },
+      { city: "烟台", code: "YNT" },
+      { city: "恩施", code: "ENH" },
+    ],
+  },
+  {
+    title: "航空公司",
+    type: "choice",
+    subject: [
+      { city: "九元", code: "AQ" },
+      { city: "捷星太平洋", code: "BL" },
+      { city: "奥凯", code: "BK" },
+      { city: "国航", code: "CA" },
+      { city: "南航", code: "CZ" },
+      { city: "东海", code: "DZ" },
+      { city: "瑞丽", code: "DR" },
+      { city: "成都", code: "EU" },
+      { city: "泰新时代", code: "E3" },
+      { city: "上海", code: "FM" },
+      { city: "福州", code: "FU" },
+      { city: "天津", code: "GS" },
+      { city: "华夏", code: "G5" },
+      { city: "多彩", code: "GY" },
+      { city: "北部湾", code: "GX" },
+      { city: "桂林", code: "GT" },
+      { city: "长龙", code: "GJ" },
+      { city: "海航", code: "HU" },
+      { city: "吉祥", code: "HO" },
+      { city: "香港", code: "HX" },
+      { city: "首都", code: "JD" },
+      { city: "昆明", code: "KY" },
+      { city: "联合", code: "KN" },
+      { city: "东航", code: "MU" },
+      { city: "厦航", code: "MF" },
+      { city: "河北", code: "NS" },
+      { city: "澳门", code: "NX" },
+      { city: "顺丰", code: "O3" },
+      { city: "马印航空", code: "OD" },
+      { city: "泰东方", code: "OX" },
+      { city: "西部", code: "PN" },
+      { city: "城市快线", code: "QG" },
+      { city: "青岛", code: "QW" },
+      { city: "江西", code: "RY" },
+      { city: "俄罗斯", code: "RL" },
+      { city: "山东", code: "SC" },
+      { city: "西藏", code: "TV" },
+      { city: "越南航空", code: "VN" },
+      { city: "越捷", code: "VJ" },
+      { city: "扬子江", code: "Y8" },
+      { city: "深航", code: "ZH" },
+      { city: "天翼亚洲", code: "ZA" },
+      { city: "川航", code: "3U" },
+      { city: "捷星", code: "3K" },
+      { city: "祥鹏", code: "8L" },
+      { city: "春秋", code: "9C" },
+      { city: "长安", code: "9H" },
+      { city: "幸福", code: "JR" },
+      { city: "乌鲁木齐", code: "UQ" },
+      { city: "龙江", code: "LT" },
+    ],
+  },
+  {
+    title: '监装题目',
+    type: 'fill',
+    subject: [
+      {
+        label: "EU2732航班(A320机型)为过站航班，卸机时载重表显示3H 有本站货物25/600kg，实际卸机20件，请写出相应处理措施：（提示，简要写出关键处理点）",
+        difficulty: 2,
+        answer: '该航班为过站航班，按照过站航班保障要点1）核实卸机件数2）查询前站是否拉货3）预配在核实系统上本站货邮重量、舱位4）根据核实结果决定是否清仓5）与配载核实出港舱位重量'
+      },
+      {
+        label: "简述监装监卸岗位的主要职责。",
+        difficulty: 2,
+        answer: '<br /> 1.服从安排，组织装卸作业。<br /> 2.实行全程有效监控。<br /> 3.按单作业，确保安全、正点。<br /> 4.与机组交接业务文件。<br /> 5.实时记录，关门前复核。'
+      },
+      {
+        label: "什么是经停航班（过站航班）",
+        difficulty: 1,
+        answer: '<br /> 1.前段后段航班号相同；<br /> 2.本站作为中间站，前有始发站，后有目的站；即：指贵阳作为第一目的站，除贵阳外还有一个或一个以上目的站的进港航班。'
+      },
+      {
+        label: "过站经停航班拉卸货邮及其拉下货邮的后续处理，监装监卸员应该如何处置？",
+        difficulty: 2,
+        answer: '<br /> 1.过站拉货。记录好通报时间、内容、通报人，同时查看过站货邮舱单是否有特殊货物，如有特殊保障货物需及时将信息反馈配载，避免拉卸急救、鲜活易腐、危险物品、小件物品，同时组织装卸员按要求拉卸，保障完毕后将拉卸数据反馈配载，作好记录，向运行调度人员通报有关情况（航班号、拉下重量、原因）。<br /> 2.拉卸货邮的处理。航班作业完毕后，监装监卸员填写《拉/卸货邮行李交接单》，交给驾驶员将拉卸的货邮送交货站部出港仓库复核员。'
+      },
+      {
+        label: "什么是货邮预配单",
+        difficulty: 1,
+        answer: '货邮装机单：简称预配单，对货邮进行预配用于航班结载前预先装载货邮的单据。'
+      },
+      {
+        label: "什么是过站货邮行李装载不正常情况？",
+        difficulty: 0,
+        answer: '指过站货邮行李装载实际情况与随机的载重报不符，迫使本站保障部门采取与始发站确认或在无法确认的情况下对过站货物采取卸机及卸机过磅后重新装机等措施的情况。'
+      },
+      {
+        label: "什么是货邮装机单？",
+        difficulty: 1,
+        answer: '货邮装机单指由配载室或成都中心配载根据吨控提供的数据向内勤打印的包含货邮具体装载位置、件数、重量等相关业务信息的装机作业预配单据。'
+      },
+      {
+        label: "什么是行李装机单及特种货物机长通知单？",
+        difficulty: 1,
+        answer: '行李装机单：指显示出港行李具体装载信息（如行李重量、件数、装载位置等）的原始作业单据。特种货物机长通知单：指运输特殊需要特别关照的货物时，由机长签字认可，并同意运输的交接作业单据。一般情况附在业务文件袋上。'
+      },
+      {
+        label: "不按要求清舱、清舱流程未执行或执行不彻底该如何控制？",
+        difficulty: 1,
+        answer: '<br/> 1.卸机后、装机前清舱；<br/> 2.装机前清舱，出港航班装机前（早班出港航班打开舱门后），必须进入货舱进行清舱，对出港航班货舱内可能藏匿物品的各个角落进行检查，确认货舱内没有遗漏物品或可疑物品，清舱完毕确认无异常后，报告责任监装监卸员并在监装监卸现场作业记录单》清舱栏目签字。 <br/> 3.卸机后清舱，卸机完毕对所有货舱做清舱处理，检查货舱（含空货舱）内是否有遗漏的行李、货邮，防止漏卸。'
+      },
+      {
+        label: "未按监装监卸员的要求装机、接收信息失误、错误理解信息，控制措施有哪些？",
+        difficulty: 0,
+        answer: '<br/> 1.“手指”“口述”，监装监卸员使用装机单通知装卸员行李装舱信息，在装机单上指出航班号、飞机号、目的站、装舱位置，装卸员明确后，大声向监装监卸复述，同时手指飞机尾部飞机号，无误后，装卸员在装机单上签字确认。<br/>2.货邮行装载完成后，操作员须确认实际装载舱位准确无误后，在吊牌上签字。'
+      },
+      {
+        label: "错卸、漏卸过站经停航班货邮行，控制措施有哪些？",
+        difficulty: 0,
+        answer: '<br/> 1.卸机作业依据载重平衡舱单确定卸机舱位，依据货邮舱单、拉货电报、载重平衡舱单来确定件数；<br/> 2.查看进港货邮舱单是否有标书、贵重物品等；<br/> 3.卸机时，必须清点卸机行李件数、识别目的站，板上装卸员按照方便清点的原则进行码放，监装监卸员与舱内装卸员核对件数； <br/> 4.根据载重平衡舱单复核过站装载舱位是否一致。发现重量明显不符，通报配载征求处理意见。'
+      },
+      {
+        label: "关舱门前未与配载复核装机数据，控制措施有哪些？",
+        difficulty: 1,
+        answer: '<br/> 1.货舱门关闭前，监装监卸员先检查实际装载与《实配单》完全相符；<br/> 2.用作业单与配载员复核实际的装舱位置、重量。联程航班分航段复核，确保实际装舱位置与配载数据完全相符。复核中发现异常，立即与配载确认并纠正；<br/> 3.未与配载复核前不得关闭货舱门。'
+      },
+      {
+        label: "待装货邮数据未完全或未有效核对，控制措施有哪些？",
+        difficulty: 2,
+        answer: '<br/> 1.监装监卸员依据《预配单》，在货邮装机前，逐项核对出港货邮板上的装机指示牌，确保所填写的数据与预配单一致。 2.不在本机位待装的出港货邮，监装监卸员提前通知驾驶员，在装机前拖运到机位。 <br/>3.核对《预配单》与装机指示牌数据，发现有不符的情况时，向运行调度反馈并做好记录。运行调度员联系货站复核员进行数据校对并将结果反馈给监装监卸员，确保《预配单》与装机指示牌数据一致，数据不符禁止装机。 <br/>4.货舱门关闭前，监装监卸员先检查实际装载与《实配单》完全相符，并与配载员复核实际的装舱位置、重量。'
+      },
+      {
+        label: "对讲机复核出现装载数据错误，控制措施有哪些？",
+        difficulty: 1,
+        answer: '<br/> 1.执行信息复述制度，即在接收到各类业务信息时，向发出信息方重复收听到的信息内容并得到对方的确认，确保业务信息的准确和完整。<br/> 2.对讲机信息不稳定时，用手机复核。'
+      },
+      {
+        label: "进港航班保障完毕后，未及时将相关设备拖离机位，控制措施有哪些？",
+        difficulty: 0,
+        answer: '<br/> 1.密切关注整个装卸进程，监督装卸员按章操作，作业完毕后，督促装卸员转移设备至红线外，清理现场 FOD，按限定数量将空板顺序摆放在设备摆放区内 ；<br/> 2.驾驶员履行职责，按照监装监卸员和装卸员的需求提供车辆设备保障，及时将机位内设备拖离机位；<br/> 3.未设置待装区的机位，如因时间不足，未拴挂网套的，装卸员随车查看，及时拾起掉落的货物。'
+      },
+      {
+        label: "装载无标签行李，控制措施有哪些？",
+        difficulty: 2,
+        answer: '<br/> 1.装卸员发现无标签行李立即报告监装监卸员；<br/> 2.监装监卸员收到拉卸行李的指令后，复述确认；<br/> 3.监装监卸员收到装卸员报告无标签行李时，要求立即拉下。'
+      },
+      {
+        label: "拉卸货邮时重量估计不准，控制措施有哪些？",
+        difficulty: 1,
+        answer: '<br/> 1.按照货整票、邮整板的原则拉卸；<br/>2.行李按照计算平均重量的办法拉卸。'
+      },
+      {
+        label: "操作员未得到监装监卸员指令自行装机，控制措施有哪些？",
+        difficulty: 2,
+        answer: '在装载货邮前，操作员查看吊牌有没有监装监卸员签字，无签字不得装机，不得擅自改变装载舱位（区位）。'
+      },
+      {
+        label: "超负荷保障航班，控制措施有哪些？",
+        difficulty: 2,
+        answer: '<br/> 1.监装监卸员在航班落地10分钟前做好预估，向运行调度申请任务转移（甩航班甩舱）；<br/> 2.任务无法转移时，果断拉货。'
+      },
+      {
+        label: "进港航班保障完毕后，未及时将相关设备拖离机位的风险源，控制措施是有哪些？",
+        difficulty: 2,
+        answer: '<br/> 1.航班保障结束后，监装监卸员随时关注作业现场，及时组织人员将保障设备拖离机位；<br/> 2.驾驶员履行职责，及时将机位内设备拖离机位；<br/> 3.未设置待装区的机位，如因时间不足，未拴挂网套的，装卸员随车查看，及时拾起掉落的货物。'
+      },
+      {
+        label: "什么是过站经停航班及联程航班？",
+        difficulty: 1,
+        answer: '过站经停航班：过站经停航班指本站作为第一目的站，除本站外还有一个或一个以上目的站的航班。联程航班：指以本站作为始发站，后续航程涉及两个（或以上）目的站的航班。'
+      },
+      {
+        label: "什么是货邮装机单及货邮行装机单？",
+        difficulty: 1,
+        answer: '货邮装机单：简称预配单，对货邮进行预配用于航班结载前预先装载货邮的单据。货邮行装机单：简称实配单，用于航班结载后装载货邮行和与配载复核的单据，该单据提供出港货邮行最终装载舱位信息（含行李重量、件数、板号、装舱位置等）。'
+      },
+      {
+        label: "什么是载重平衡舱单及进港货邮舱单？",
+        difficulty: 2,
+        answer: '载重平衡舱单：指提供进出港货邮行装载位置、重量、件数等信息的载重平衡单据，提供进港卸机的作业依据。进港货邮舱单：指出发站出港部门提供给到达站进港部门核对货邮所用的清单（包括货邮运单号码、件数、重量、品名等具体货邮信息）。'
+      },
+      {
+        label: "什么是货邮装机指示牌？",
+        difficulty: 2,
+        answer: '货邮装机指示牌：由出港库房依据出港货邮舱单实施货邮装板复核无误后，拴挂在平板尾部，指导装机操作的装机指示吊牌，至少标明日期、航班号、飞机号、目的站、货物件数/重量，邮件件数/重量，装机舱位。'
+      },
+      {
+        label: "什么是行李装机指示牌？",
+        difficulty: 1,
+        answer: '行李装机指示牌（地服板车挂牌）：由地服行李分拣员拴挂在平板前方栏杆上的行李装机指示牌，至少标明日期、航班号、目的地、板数。'
+      },
+      {
+        label: "什么是拉/卸货邮行李交接单？",
+        difficulty: 1,
+        answer: '拉/卸货邮行李交接单：指监装在保障航班时，因载量不足或因旅客未到等原因需拉下货物或行李，填写的拉卸货邮、行李单据，货邮与库区交接，行李与分拣交接。'
+      },
+      {
+        label: "货邮装机，装机前复核主要的复核内容是什么？",
+        difficulty: 2,
+        answer: '复核预配单“航班号”、“飞机号”等项目是否与保障航班完全相符，核对装机货邮指示牌与预配单日期、航班号、飞机号、目的站、装载舱位、件数/重量等项目是否相符。装机指示牌在货邮完成装机并复核后摘除，防止错装。国航航班货邮装机，依据国航中心配载远程打印的装机单所示的板号和舱位与装机指示牌复核无误后组织装机。'
+      },
+      {
+        label: "人员上下平台车需要遵守的的规章有哪些？",
+        difficulty: 2,
+        answer: '<br /> A.平台车驾驶员通过工作梯上下，并避免前平台处于高位；<br /> B.操作员通过主平台升降上下前平台，站立在主平台中央位置，防止摔落；<br /> C.在平台上行走时，避免踩踏滚轮，防止滑倒伤人；<br /> D.操作员与集装箱、板一同升降时，须站立于靠近平台车驾驶员一侧，便于观察确认安全；<br /> E.禁止从桥平台向主平台跳跃，非特殊情况，禁止操作员从工作梯上下前平台。'
+      },
+      {
+        label: "接收到进港库房少收进港货邮通知后，监装监卸员应该怎样处理？",
+        difficulty: 2,
+        answer: '接收到进港库房少收进港货邮通知后，且飞机尚在本场时，对过夜飞机应积极采取再次清舱措施，确保不漏卸货邮，并安排装卸员检查行李转盘发放区域的网套平板及死角，避免出现网套盖压等原因造成的货邮少收，过站航班按照过站经停航班相关程序行处理。'
+      },
+      {
+        label: "接到运行调度关于“少收进港行李”的通知时，监装监卸员应该怎样处理？",
+        difficulty: 2,
+        answer: '接到运行调度关于“少收进港行李”的通知时，立即组织装卸员到对应航班货舱内、卸机货物内进行查找，如飞机已经卸空或经翻找未果且进港货物已经送交进港库房，如实向运行调度予以反馈，以便其继续进行查找。如经翻找发现少收的行李，将信息及时通报到运行调度，由运行调度及时将相关信息反馈行李查询人员，并安排装卸员立即将行李送到相应行李转盘交行李发放员。'
+      },
+      {
+        label: "接收到商调拉下行李通知及清舱时，监装监卸员应该怎样处理？",
+        difficulty: 2,
+        answer: '接收到商调拉下行李通知时，准确记录时间和需要拉下的行李包丁号，立即组织装卸员进行查找，查找的行李经与商调确认行李号码和无需再装机信息后，填写《拉/卸货邮行李交接单》，将拉下的行李安排装卸员或驾驶员送达行李分拣签字交接。<br/> 4.接到商调行李清舱信息时，依据提供的行李牌号码组织装卸员逐件核对行李，并将清理结果反馈商调，按照商调要求进行处理并记录。'
+      },
+      {
+        label: "B737系列、E190、ARJ21等机型货舱分布混标准不统一，容易造成混淆，控制措施有哪些？",
+        difficulty: 2,
+        answer: '<br /> 1.监装监卸员填写吊牌舱位时，只分前后舱的，一律填写前舱、或后舱，禁止使用1、4表示；<br /> 2.库区吊牌填有1、4舱位字样的，责任监装监卸员核对时，按照部门要求更改成前、后舱，然后签字确认；<br /> 3.装卸员严格按照吊牌舱位装机，吊牌上写“1H”的，只能装1舱、写“4H”的只能装在4舱，舱位不足导致装不下时，报告监装监卸处理；<br /> 4.摘取吊牌人员认真核对装机位置，确保无误后，写上实际装舱位置，签字确认，禁止使用1、4表示前、后舱。'
+      },
+    ]
+  }
 ]

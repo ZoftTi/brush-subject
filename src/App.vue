@@ -1,18 +1,9 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-import { ElMessageBox } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
 import { subject } from 'src/assets/data/subject_data'
 
-type cityType = {
-  city: string;
-  code: string;
-  value?: string;
-  type?: number;
-  answer?: string[];
-};
-
-const cityType: any = ["城市代码","航空公司","测试题目"];
-
+// 结算数据
 const accuracy = reactive({
   count: 0,
   percentage: "",
@@ -24,62 +15,50 @@ let alertOptions = reactive({
   show: false,
 });
 
-// 题目的index
-const activeIndex = ref<number>(0);
+// 取出题库并随机题库
+const subjectGroup = subject.map(item => {
+  return {
+    ...item,
+    subject: item.subject.sort(() => Math.random() - 0.5)
+  }
+})
 
-// 活跃题目的答案
-let activeAnswer = ref<string[]>([]);
+// 题库的index
+const activeSubjectGroupIndex = ref<number>(0);
+
+// 题目的index
+const activeSubjectIndex = ref<number>(0);
 
 // 禁止输入
 let disabled = ref(false);
 
 const formValue = ref<string>("");
 
-const answerType = ref<number>(0);
+const handleChangeSubject = () => {
+  disabled.value = false;
+  alertOptions.show = false;
+  formValue.value = "";
 
-let subjectCode = ref<cityType[]>(subject[0].sort(() => Math.random() - 0.5));
+  // 重置题目索引
+  activeSubjectIndex.value = 0
 
-const changeSubject = () => {
-  console.log(answerType.value, subjectCode[answerType.value])
-  ElMessageBox.alert("确认切换吗", "确认", {
-    // if you want to disable its autofocus
-    // autofocus: false,
-    confirmButtonText: "OK",
-    callback: () => {
-      
-      subjectCode.value = []
-      subjectCode.value.push(...subject[answerType.value]);
-
-      // 题目顺序随机
-      subjectCode.value.sort(() => Math.random() - 0.5);
-
-      disabled.value = false;
-      alertOptions.show = false;
-      formValue.value = "";
-      randAnswer()
-
-      console.log(subjectCode.value, answerType.value);
-
-      window.localStorage.removeItem("subjectCode");
-      window.localStorage.removeItem("activeIndex");
-      window.localStorage.setItem(
-        "answerType",
-        JSON.stringify(answerType.value)
-      );
-    },
-  });
+  if (subjectGroup[activeSubjectGroupIndex.value].type === 'choice') {
+    handleRandAnswer()
+  }
 };
 
-const nextSubject = () => {
+const handleNextSubject = () => {
   if (!formValue.value) {
+    ElMessage('请输入答案')
     return false;
   }
 
-  activeIndex.value = activeIndex.value + 1;
+  activeSubjectIndex.value++
 
-  if (activeIndex.value + 1 > subjectCode.value.length) {
-    console.log("balance");
-    balance();
+  if (activeSubjectIndex.value + 1 > subjectGroup[activeSubjectGroupIndex.value].subject.length) {
+    ElMessage('已经是最后一题拉')
+    // 调用结算方法
+    handleBalance()
     return false;
   }
 
@@ -87,211 +66,197 @@ const nextSubject = () => {
   alertOptions.show = false;
   formValue.value = "";
 
-  randAnswer();
+  if (subjectGroup[activeSubjectGroupIndex.value].type === 'choice') {
+    handleRandAnswer()
+  }
 };
 
-const randAnswer = () => {
+const choiceAnswerArray = ref<string[]>([])
 
-  const subject_next = subjectCode.value[activeIndex.value]
+const handleRandAnswer = () => {
 
-  console.log(subject_next)
+  const randNumber = (): Array<number> => {
+    const numbs = [activeSubjectIndex.value];
 
-  if(subject_next?.answer) {
-    activeAnswer.value = [subject_next.code, ...subject_next.answer.sort(() => Math.random() - 0.5)]
-    return
-  }
-  
+    while (numbs.length < 4) {
+      let rand = Math.floor(Math.random() * subjectGroup[activeSubjectGroupIndex.value].subject.length);
+      if (!numbs.includes(rand)) {
+        // 确保随机数不重复
+        numbs.push(rand);
+      }
+    }
+
+    return numbs.sort(function () {
+      return 0.5 - Math.random();
+    });
+  };
+
   const nums = randNumber();
-  const result:string[] = [];
-
-  console.log(nums);
+  const result: string[] = [];
 
   nums.forEach((element) => {
-    result.push(subjectCode.value[element].code);
+    result.push(subjectGroup[activeSubjectGroupIndex.value].subject[element].code);
   });
 
-  activeAnswer.value = result;
+  console.log(result)
+
+  choiceAnswerArray.value = result;
 };
 
-const randNumber = (): Array<number> => {
-  const numbs = [activeIndex.value];
+const handleAnswer = () => {
+  const activeSubject = subjectGroup[activeSubjectGroupIndex.value].subject[activeSubjectIndex.value]
+  const activeSubjectGroup = subjectGroup[activeSubjectGroupIndex.value]
 
-  while (numbs.length < 4) {
-    let rand = Math.floor(Math.random() * subjectCode.value.length);
-    if (!numbs.includes(rand)) {
-      // 确保随机数不重复
-      numbs.push(rand);
+  if (activeSubjectGroup.type === 'choice') {
+    const code = activeSubject.code
+    if (formValue.value) activeSubject.value = formValue.value
+    disabled.value = true;
+    if (code == formValue.value) {
+      alertOptions.show = true;
+      alertOptions.text = "答案正确";
+      alertOptions.type = "success";
+      handleNextSubject()
+    } else {
+      alertOptions.show = true;
+      alertOptions.text = `答案错误，正确答案为${code}`;
+      alertOptions.type = "error";
     }
   }
 
-  return numbs.sort(function () {
-    return 0.5 - Math.random();
-  });
-};
+  if (activeSubjectGroup.type === 'fill') {
+    if (formValue.value) activeSubject.value = formValue.value
 
-const changeAnswer = () => {
-  const code = subjectCode.value[activeIndex.value].code;
+    ElMessageBox.confirm(`你的答案: ${formValue.value} <br/> 标准答案: ${activeSubject.answer}`, '对比答案', {
+      dangerouslyUseHTMLString: true,
+      confirmButtonText: '对',
+      cancelButtonText: '错',
+    }).then(() => {
+      // 将批改结果设置为对
+      activeSubject.correct = true
+      handleNextSubject()
+    }).catch(() => {
+      // 将批改结果设置为错
+      activeSubject.correct = false
+      handleNextSubject()
+    })
 
-  window.localStorage.setItem("subjectCode", JSON.stringify(subjectCode.value));
-  window.localStorage.setItem("activeIndex", JSON.stringify(activeIndex.value));
-  window.localStorage.setItem("answerType", JSON.stringify(answerType.value));
-
-  subjectCode.value[activeIndex.value].value = formValue.value;
-  disabled.value = true;
-
-  if (code == formValue.value) {
-    alertOptions.show = true;
-    alertOptions.text = "答案正确";
-    alertOptions.type = "success";
-    nextSubject()
-  } else {
-    alertOptions.show = true;
-    alertOptions.text = `答案错误，正确答案为${code}`;
-    alertOptions.type = "error";
   }
+
 };
 
-const clearCache = () => {
-  ElMessageBox.alert("确认清除缓存吗", "清除缓存", {
-    // if you want to disable its autofocus
-    // autofocus: false,
-    confirmButtonText: "OK",
-    callback: () => {
-      window.localStorage.removeItem("subjectCode");
-      window.localStorage.removeItem("activeIndex");
-      window.localStorage.removeItem("answerType");
+// 结算功能
+const handleBalance = () => {
+  console.log(subjectGroup[activeSubjectGroupIndex.value])
 
-      window.location.reload();
-    },
-  });
-};
+  const activeSubjectGroup = subjectGroup[activeSubjectGroupIndex.value]
 
-const balance = () => {
-  // 结算
-  subjectCode.value.forEach((e) => {
-    if (e.code == e.value) {
-      accuracy.count++;
+  activeSubjectGroup.subject.forEach(e => {
+    if (activeSubjectGroup.type === 'choice') {
+      if (e.code === e.value) accuracy.count++
     }
-  });
 
-  accuracy.percentage = ((accuracy.count / subjectCode.value.length) * 100)
-    .toFixed(2)
-    .toString();
+    if (activeSubjectGroup.type === 'fill') {
+      if (e?.correct) accuracy.count++
+    }
+  })
+
+  accuracy.percentage = ((accuracy.count / activeSubjectGroup.subject.length) * 100).toFixed(2).toString();
 };
 
 onMounted(() => {
-  const city = window.localStorage.getItem("subjectCode");
-  const index = window.localStorage.getItem("activeIndex");
-  const type = window.localStorage.getItem("answerType");
-
-  if (city && index) {
-    subjectCode.value = reactive(JSON.parse(city));
-    activeIndex.value = parseInt(JSON.parse(index));
-    answerType.value = parseInt(JSON.parse(type));
+  if (subjectGroup[activeSubjectGroupIndex.value].type === 'choice') {
+    handleRandAnswer()
   }
+})
 
-  randAnswer();
-});
 </script>
 
 <template>
   <div class="container p-6 pt-32 h-lvh">
     <div class="p-2 bg-white rounded-md mb-2">
-      <el-radio-group v-model="answerType" @change="changeSubject">
-        <el-radio-button :label="type" :value="index" v-for="(type, index) in cityType" :key="type" />
+      <el-radio-group v-model="activeSubjectGroupIndex" @change="handleChangeSubject">
+        <el-radio-button :label="item.title" :value="index" v-for="(item, index) in subjectGroup" :key="item.title" />
       </el-radio-group>
     </div>
 
-    <div
-      class="shadow-2xl w-full p-6 rounded-md bg-white"
-      v-if="!(activeIndex + 1 > subjectCode.length)"
-    >
+    <div class="shadow-2xl w-full p-6 rounded-md bg-white" v-if="activeSubjectIndex !== subjectGroup[activeSubjectGroupIndex].subject.length">
       <p class="title line-clamp-1 mb-2 block text-lg font-semibold">
         VV 刷题记！！
       </p>
 
-      <div class="subject mb-4">
+      <div class="subject" v-if="subjectGroup[activeSubjectGroupIndex].type !== 'choice'">
         <p>
-          {{ activeIndex + 1 }}. {{ subjectCode[activeIndex].city }}的{{
-            cityType[subjectCode[activeIndex].type]
+          <el-tag size="small" :type="['primary', 'warning', 'danger'][subjectGroup[activeSubjectGroupIndex].subject[activeSubjectIndex].difficulty]">{{ ['易', '中', '难'][subjectGroup[activeSubjectGroupIndex].subject[activeSubjectIndex].difficulty] }}</el-tag>
+          {{ activeSubjectIndex + 1 }}.{{ subjectGroup[activeSubjectGroupIndex].subject[activeSubjectIndex].label }}
+        </p>
+
+        <div class="fill-answer">
+          <span>填写答案</span>
+          <el-input type="textarea" v-model="formValue" :rows="3" placeholder="请输入答案"></el-input>
+        </div>
+
+        <div class="options mt-4">
+          <el-button type="primary" @click="handleAnswer">提交并查看答案</el-button>
+        </div>
+      </div>
+
+      <div class="subject" v-else>
+        <p>
+          {{ activeSubjectIndex + 1 }}. {{ subjectGroup[activeSubjectGroupIndex].subject[activeSubjectIndex]?.city }}的{{
+            subjectGroup[activeSubjectGroupIndex].title
           }}是下列中的那一个?
         </p>
 
-        <el-radio-group
-          class="ml-2 mt-2"
-          :validate-event="false"
-          v-model="formValue"
-          @change="changeAnswer"
-          :disabled="disabled"
-        >
-          <el-radio
-            v-for="v in activeAnswer"
-            :value="v"
-            size="large"
-            :key="v"
-            >{{ v }}</el-radio
-          >
+        <el-radio-group class="ml-2 mt-2 mb-4" :validate-event="false" v-model="formValue" @change="handleAnswer"
+          :disabled="disabled">
+          <el-radio v-for="v in choiceAnswerArray" :value="v" size="large" :key="v">{{ v }}</el-radio>
         </el-radio-group>
-      </div>
 
-      <el-alert
-        v-if="alertOptions.show"
-        :title="alertOptions.text"
-        :type="alertOptions.type"
-        effect="dark"
-      />
+        <el-alert v-if="alertOptions.show" :title="alertOptions.text" :type="alertOptions.type" effect="dark" />
 
-      <div class="options mt-4">
-        <el-button type="primary" @click="nextSubject">下一题</el-button>
-        <el-button type="danger" @click="clearCache">清除缓存</el-button>
+        <div class="options mt-4">
+          <el-button type="primary" @click="handleNextSubject">下一题</el-button>
+        </div>
       </div>
     </div>
 
-    <div
-      class="balance shadow-2xl w-full p-6 rounded-md bg-white"
-      v-if="activeIndex + 1 > subjectCode.length"
-    >
+    <!-- 结算功能 -->
+    <div class="balance shadow-2xl w-full p-6 rounded-md bg-white" v-else>
       <p class="title line-clamp-1 mb-2 block text-lg font-semibold">
         结算！！
       </p>
 
       <div class="balance-grid grid">
-        <div
-          :class="{ success: v.code == v.value }"
-          v-for="(v, i) in subjectCode"
-          :key="v.code"
-          class="text-white"
-        >
-          <el-tooltip
-            class="box-item"
-            effect="dark"
-            :content="`题目:${v.city}, 答案: ${v.code}, 类型: ${
-              cityType[v.type]
-            }`"
-            placement="top-start"
-          >
-            {{ i }}
+        <div :class="{ success: (v?.code == v?.value || v?.correct) }" v-for="(v, i) in subjectGroup[activeSubjectGroupIndex].subject"
+          :key="v.code" class="text-white">
+          <el-tooltip v-if="subjectGroup[activeSubjectGroupIndex].type === 'choice'" class="box-item" effect="dark"
+            :content="`题目:${v.city}, 答案: ${v.code}, 类型: ${subjectGroup[activeSubjectGroupIndex].title}`"
+            placement="top-start">
+            {{ i + 1 }}
           </el-tooltip>
+
+          <div class="box-item" v-else-if="subjectGroup[activeSubjectGroupIndex].type === 'fill'" @click="() => {
+            ElMessageBox.confirm(`你的答案: ${v.value} <br/> 标准答案: ${v.answer}`, '对比答案', {
+              dangerouslyUseHTMLString: true,
+              showCancelButton: false
+            })
+          }">
+            {{ i + 1 }}
+          </div>
         </div>
       </div>
 
       <div class="flex mt-4">
         <div class="text-xl">
-          {{ accuracy.count + "/" + subjectCode.length }}
+          {{ accuracy.count + "/" + subjectGroup[activeSubjectGroupIndex].subject.length }}
           <span class="text-sm">正确数量</span>
         </div>
         <div class="text-xl ml-6">
           {{ accuracy.percentage }} %<span class="text-sm">正确率</span>
         </div>
       </div>
-      <el-button class="mt-2" type="danger" @click="clearCache"
-        >清除缓存(重置)</el-button
-      >
     </div>
   </div>
-  <!-- <p class="text-blue-600 text-2xl text-center">
-    The quick brown fox...
-  </p> -->
 </template>
 
 <style scoped>
@@ -314,7 +279,7 @@ onMounted(() => {
   gap: 5px;
 }
 
-.balance-grid div {
+.balance-grid > div {
   height: 22px;
   width: 22px;
   background: red;
@@ -325,6 +290,16 @@ onMounted(() => {
 }
 
 .balance-grid div.success {
-  background: green;
+  background: green !important;
+}
+
+.fill-answer {
+  margin-top: 10px;
+}
+
+.fill-answer>span {
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 5px;
 }
 </style>
